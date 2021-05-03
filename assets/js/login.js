@@ -1,8 +1,8 @@
 $(function() {
     // 登陆表单跳转注册表单
     $('#toLogin').on('click', function() {
-        $('.loginBox').show();
         $('.regBox').hide();
+        $('.loginBox').show();
     });
     // 注册表单跳转登陆表单
     $('#toReg').on('click', function() {
@@ -30,14 +30,14 @@ $(function() {
             e.preventDefault();
             $.ajax({
                 type: "post",
-                url: "http://ajax.frontend.itheima.net/api/reguser",
+                url: "/api/reguser",
                 data: { username: $('.regBox [name=username]').val(), password: $('.regBox [name=password]').val() },
                 success: function(res) {
                     if (res.status !== 0) {
-                        return res.message
-                        return layer.msg(res.message)
+                        // return console.log(res.msg)
+                        return layer.msg(res.msg)
                     }
-                    layer.mag('注册成功')
+                    layer.msg('注册成功')
                         // 模拟点击行为
                     $('#toLogin').click()
 
@@ -50,14 +50,16 @@ $(function() {
         $.ajax({
             type: "POST",
             url: "/api/login",
-            data: $(this).serialize(), //序列化表单的值创建url编码表示的文本字符串
+            //序列化表单的值创建url编码表示的文本字符串(快速获取表单数据)
+            data: $(this).serialize(),
             success: function(res) {
                 if (res.status !== 0) {
-                    return layer.mag('登陆失败')
+                    return layer.msg('登陆失败')
                 }
                 layer.msg('登陆成功')
+                    // console.log(res.token)
                     // 将成功得到的token字符串，保存到localStorage中
-                localStorage.setItem('token'.res.token)
+                localStorage.setItem('token', res.token)
                     // 跳转到后台主页
                 location.href = 'index.html'
             }
