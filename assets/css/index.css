@@ -18,6 +18,7 @@ iframe {
 }
 
 .layui-body {
+    /* 消除右侧出现连个滚动条现象 */
     overflow: hidden;
 }
 
