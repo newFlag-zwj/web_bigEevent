@@ -1,0 +1,66 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f2f3f5;
+    padding: 30px;
+}
+
+.layui-card-body {
+    width: 500px;
+    /* background-color: pink; */
+}
+
+.row2 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.cropper-box {
+    width: 350px;
+    height: 350px;
+    /* background-color: cyan; */
+    overflow: hidden;
+}
+
+.row1 {
+    display: flex;
+}
+
+.preview-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+.img-preview {
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.w100 {
+    width: 100px;
+    height: 100px;
+    /* background-color: cyan; */
+}
+
+.w50 {
+    width: 50px;
+    height: 50px;
+    /* background-color: cyan; */
+}
+
+.size {
+    margin: 5px 0;
+    text-align: center;
+    font-size: 12px;
+}
+
+#file {
+    display: none;
+}
